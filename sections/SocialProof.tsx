@@ -8,13 +8,13 @@ const testimonials = [
   {
     name: "Carol Carvalho",
     role: "Google Review",
-    content: "Uma experiência única conhecer o Dr. Alexandre Aragão e a equipe da clínica Dente Vida. Atenção e profissionalismo são qualidades notáveis desde o primeiro atendimento. Eu, como paciente, só tenho a agradecer pela forma que foram conduzidos todos os procedimentos... sem contar que o preço é muito acessível.",
+    content: "Uma experiência única conhecer o Dr. Alexandre Aragão e a equipe da clínica Dente Vida. Atenção e profissionalismo são qualidades notáveis desde o primeiro atendimento. Eu, como paciente, só tenho a agradecer!",
     image: "https://i.ibb.co/vxpWb5ZK/image.png"
   },
   {
     name: "Filipe Rocha",
     role: "Google Review",
-    content: "Melhor clínica dentária de Vitória da Conquista. Sou cliente há muitos anos e sempre fui muito bem atendido tanto pelos funcionários quanto pelos dentistas. Ambiente extremamente limpo, aconchegante e profissional. Recomendo a todos, sem ressalvas!",
+    content: "Melhor clínica dentária de Vitória da Conquista. Sou cliente há muitos anos e sempre fui muito bem atendido tanto pelos funcionários quanto pelos dentistas. Ambiente extremamente limpo, aconchegante e profissional. Recomendo a todos!",
     image: "https://randomuser.me/api/portraits/men/67.jpg"
   },
   {
@@ -46,7 +46,7 @@ const SocialProof = () => {
           className="text-center mb-16"
         >
           <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-bold text-white mb-6">
-            Histórias que nos fazem sorrir
+            Consulta Humanizada
           </motion.h2>
           <motion.p variants={fadeInUp} className="text-teal-50 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
             A satisfação dos nossos pacientes é o nosso maior cartão de visitas.
@@ -104,13 +104,13 @@ const SocialProof = () => {
           viewport={{ once: true }} 
           className="flex justify-center items-center mt-12 pt-8"
         >
-            <div className="flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-teal-400/30">
-                <div className="flex gap-1">
+            <div className="flex items-center gap-2 px-4 md:px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-teal-400/30">
+                <div className="flex gap-1 shrink-0">
                 {[1, 2, 3, 4, 5].map((star) => (
-                    <Star key={star} className="w-5 h-5 text-yellow-400 fill-current" />
+                    <Star key={star} className="w-4 h-4 md:w-5 md:h-5 text-yellow-400 fill-current" />
                 ))}
                 </div>
-                <span className="text-white font-medium text-lg ml-2">4.8 de 5.0 no Google</span>
+                <span className="text-white font-medium text-sm md:text-lg ml-2 whitespace-nowrap">4.8 de 5.0 no Google</span>
             </div>
         </motion.div>
       </div>

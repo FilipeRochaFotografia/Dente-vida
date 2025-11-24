@@ -48,7 +48,7 @@ const FAQ = () => {
             Dúvidas Frequentes
           </motion.h2>
           <motion.p variants={fadeInUp} className="text-slate-600">
-            Esclareça suas principais dúvidas sobre nossos tratamentos.
+            Esclareça suas principais dúvidas <br className="md:hidden" /> sobre nossos tratamentos.
           </motion.p>
         </motion.div>
 

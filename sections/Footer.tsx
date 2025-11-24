@@ -35,8 +35,8 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Links */}
-          <div>
+          {/* Links - Hidden on Mobile */}
+          <div className="hidden md:block">
             <h4 className="text-white font-bold mb-6">Links Rápidos</h4>
             <ul className="space-y-4">
               <li><a href="#" className="hover:text-white transition-colors">Início</a></li>

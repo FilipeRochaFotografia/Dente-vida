@@ -8,7 +8,7 @@ const Hero = () => {
   const [imgLoaded, setImgLoaded] = useState(false);
 
   return (
-    <section id="home" className="relative min-h-screen w-full flex items-center pt-20 overflow-hidden bg-soft-gradient">
+    <section id="home" className="relative min-h-screen w-full flex items-center pt-28 lg:pt-20 overflow-hidden bg-soft-gradient">
       {/* Background Decorative Elements */}
       <div className="absolute top-[-10%] right-[-5%] w-[50vw] h-[50vw] bg-teal-200/20 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-teal-500/10 rounded-full blur-[120px] pointer-events-none" />
@@ -27,13 +27,15 @@ const Hero = () => {
               📅 Agende sua visita
             </motion.div>
 
-            <motion.h1 variants={fadeInUp} className="text-5xl lg:text-6xl font-bold text-teal-900 leading-[1.1] tracking-tight mb-6">
+            <motion.h1 variants={fadeInUp} className="text-4xl lg:text-6xl font-bold text-teal-900 leading-[1.1] tracking-tight mb-6">
               Seu melhor sorriso <br />
-              começa na <span className="text-teal-700">Dente</span> <span className="text-teal-500">Vida</span>
+              começa na <br className="md:hidden" />
+              <span className="text-teal-700">Dente</span> <span className="text-teal-500">Vida</span>
+              <span className="hidden md:inline">.</span>
             </motion.h1>
 
             <motion.p variants={fadeInUp} className="text-lg lg:text-xl text-slate-600 mb-8 leading-relaxed">
-              Odontologia humanizada e tecnologia de ponta para cuidar da sua saúde e autoestima. <strong className="text-teal-700">Dr. Alexandre Rodrigues Aragão</strong> e equipe.
+              Proteja o sorriso de quem você ama com tecnologia de ponta e um atendimento que acolhe. <strong className="text-teal-700">Dr. Alexandre</strong> e equipe cuidando com carinho da sua família.
             </motion.p>
 
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 mb-12 w-full sm:w-auto justify-center lg:justify-start">
@@ -46,7 +48,7 @@ const Hero = () => {
             </motion.div>
 
             {/* Trust Indicators */}
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-8 pt-8 border-t border-slate-200 w-full">
+            <motion.div variants={fadeInUp} className="flex flex-row flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-8 pt-8 border-t border-slate-200 w-full">
               <div className="flex items-center gap-3">
                 <div className="p-3 bg-teal-50 rounded-full text-teal-600">
                   <Star className="w-6 h-6 fill-current" />
