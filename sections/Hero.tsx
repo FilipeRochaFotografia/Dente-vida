@@ -21,24 +21,22 @@ const Hero = () => {
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="max-w-2xl"
+            className="max-w-2xl flex flex-col items-center lg:items-start text-center lg:text-left mx-auto lg:mx-0"
           >
             <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-teal-50 border border-teal-100 text-teal-800 text-base font-medium mb-6">
               📅 Agende sua visita
             </motion.div>
 
-            <motion.h1 variants={fadeInUp} className="text-5xl lg:text-7xl font-bold text-teal-900 leading-[1.1] tracking-tight mb-6">
+            <motion.h1 variants={fadeInUp} className="text-5xl lg:text-6xl font-bold text-teal-900 leading-[1.1] tracking-tight mb-6">
               Seu melhor sorriso <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-teal-400">
-                começa aqui.
-              </span>
+              começa na <span className="text-teal-700">Dente</span> <span className="text-teal-500">Vida</span>
             </motion.h1>
 
             <motion.p variants={fadeInUp} className="text-lg lg:text-xl text-slate-600 mb-8 leading-relaxed">
               Odontologia humanizada e tecnologia de ponta para cuidar da sua saúde e autoestima. <strong className="text-teal-700">Dr. Alexandre Rodrigues Aragão</strong> e equipe.
             </motion.p>
 
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 mb-12">
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 mb-12 w-full sm:w-auto justify-center lg:justify-start">
               <Button variant="primary" icon={<ChevronRight className="w-5 h-5" />}>
                 Agendar Consulta
               </Button>
@@ -48,12 +46,12 @@ const Hero = () => {
             </motion.div>
 
             {/* Trust Indicators */}
-            <motion.div variants={fadeInUp} className="flex items-center gap-8 pt-8 border-t border-slate-200">
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-8 pt-8 border-t border-slate-200 w-full">
               <div className="flex items-center gap-3">
                 <div className="p-3 bg-teal-50 rounded-full text-teal-600">
                   <Star className="w-6 h-6 fill-current" />
                 </div>
-                <div>
+                <div className="text-left">
                   <p className="font-bold text-lg text-slate-900">4.8/5</p>
                   <p className="text-sm text-slate-500">Google Reviews</p>
                 </div>
@@ -62,7 +60,7 @@ const Hero = () => {
                 <div className="p-3 bg-teal-50 rounded-full text-teal-600">
                   <ShieldCheck className="w-6 h-6" />
                 </div>
-                <div>
+                <div className="text-left">
                   <p className="font-bold text-lg text-slate-900">Certificado</p>
                   <p className="text-sm text-slate-500">CRO BA 11439</p>
                 </div>
@@ -133,7 +131,7 @@ const Hero = () => {
                   <Instagram size={32} />
                </div>
                <div>
-                  <p className="font-bold text-slate-900 text-xl leading-tight">Dente.vida</p>
+                  <p className="font-bold text-slate-900 text-xl leading-tight">dente.vida</p>
                </div>
             </motion.div>
           </motion.div>

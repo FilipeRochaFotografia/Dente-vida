@@ -89,17 +89,6 @@ const Footer = () => {
           <p>&copy; {new Date().getFullYear()} Dente Vida Clínica Odontológica. Todos os direitos reservados.</p>
         </div>
       </div>
-      
-      {/* Sticky Mobile CTA */}
-      <div className="fixed bottom-6 right-6 z-50">
-        <a 
-          href="#" 
-          className="flex items-center justify-center w-16 h-16 bg-green-500 rounded-full shadow-lg shadow-green-500/40 hover:scale-110 transition-transform text-white"
-          aria-label="Chat on WhatsApp"
-        >
-          <MessageCircle size={32} />
-        </a>
-      </div>
     </footer>
   );
 };
