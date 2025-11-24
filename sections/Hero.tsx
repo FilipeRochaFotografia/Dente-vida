@@ -80,7 +80,7 @@ const Hero = () => {
             <div className="relative z-20 rounded-[2.5rem] overflow-hidden shadow-2xl shadow-teal-900/20 aspect-[3/4] border-4 border-white group">
               {/* Image replaced with a high-quality Unsplash placeholder */}
               <img 
-                src="https://i.ibb.co/qMc82gYx/Whats-App-Image-2025-11-22-at-10-29-17-AM-1.jpg" 
+                src="https://i.ibb.co/dFbh70j/Generated-Image-November-24-2025-9-40-AM.png" 
                 alt="Dr. Alexandre Rodrigues Aragão" 
                 className="object-cover object-top w-full h-full transform group-hover:scale-105 transition-transform duration-700 bg-slate-200"
               />
