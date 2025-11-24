@@ -26,8 +26,17 @@ const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 bg-white">
-      <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
+    <section id="faq" className="py-24 bg-white relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-10">
+        <img 
+          src="https://i.ibb.co/3m86sT5Y/Generated-Image-November-24-2025-12-30-PM.png" 
+          alt="Clinic Background" 
+          className="w-full h-full object-cover object-center"
+        />
+      </div>
+
+      <div className="container mx-auto px-6 lg:px-12 max-w-4xl relative z-10">
         <motion.div 
           variants={staggerContainer}
           initial="hidden"
@@ -51,7 +60,7 @@ const FAQ = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`border rounded-2xl overflow-hidden transition-all duration-300 ${activeIndex === index ? 'border-teal-200 bg-teal-50/30' : 'border-slate-200'}`}
+              className={`border rounded-2xl overflow-hidden transition-all duration-300 bg-white/80 backdrop-blur-sm ${activeIndex === index ? 'border-teal-200 bg-teal-50/50' : 'border-slate-200'}`}
             >
               <button
                 onClick={() => setActiveIndex(activeIndex === index ? null : index)}

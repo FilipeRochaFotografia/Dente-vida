@@ -1,35 +1,42 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Quote } from 'lucide-react';
+import { Quote, Star } from 'lucide-react';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 
 const testimonials = [
   {
-    name: "Mariana Costa",
-    role: "Paciente de Ortodontia",
-    content: "A clínica Dente Vida mudou minha autoestima. O Dr. Alexandre é extremamente atencioso e o resultado do meu tratamento ficou incrível.",
-    image: "https://picsum.photos/seed/woman1/100/100"
+    name: "Carol Carvalho",
+    role: "Google Review",
+    content: "Uma experiência única conhecer o Dr. Alexandre Aragão e a equipe da clínica Dente Vida. Atenção e profissionalismo são qualidades notáveis desde o primeiro atendimento. Eu, como paciente, só tenho a agradecer pela forma que foram conduzidos todos os procedimentos... sem contar que o preço é muito acessível.",
+    image: "https://i.ibb.co/vxpWb5ZK/image.png"
   },
   {
-    name: "Carlos Oliveira",
-    role: "Implante Dentário",
-    content: "Tinha muito medo de dentista, mas a equipe me deixou super confortável. O procedimento foi sem dor e a recuperação muito rápida.",
-    image: "https://picsum.photos/seed/man1/100/100"
+    name: "Filipe Rocha",
+    role: "Google Review",
+    content: "Melhor clínica dentária de Vitória da Conquista. Sou cliente há muitos anos e sempre fui muito bem atendido tanto pelos funcionários quanto pelos dentistas. Ambiente extremamente limpo, aconchegante e profissional. Recomendo a todos, sem ressalvas!",
+    image: "https://randomuser.me/api/portraits/men/67.jpg"
   },
   {
-    name: "Fernanda Santos",
-    role: "Mãe de Paciente",
-    content: "Levo meus dois filhos e eles adoram. O ambiente é acolhedor e a equipe sabe lidar com crianças. Recomendo de olhos fechados!",
-    image: "https://picsum.photos/seed/woman2/100/100"
+    name: "Eduardo Silva",
+    role: "Google Review",
+    content: "Atendimento espetacular. O Dr Alexandre é um profissional diferenciado, eu indico ele a todos meus colegas. Profissional demais, muito atencioso. Já o tenho como referência primeira quando preciso ir ao dentista.",
+    image: "https://randomuser.me/api/portraits/men/32.jpg"
   }
 ];
 
 const SocialProof = () => {
   return (
-    <section className="py-24 bg-teal-700 relative overflow-hidden">
+    <section id="testimonials" className="py-24 bg-gradient-to-br from-teal-600 via-teal-700 to-teal-800 relative overflow-hidden">
       {/* Texture Overlay */}
-      <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+      <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
       
+      {/* Decorative Blur */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+         <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-teal-500/30 rounded-full blur-[100px]"></div>
+         <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-teal-900/30 rounded-full blur-[100px]"></div>
+      </div>
+
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <motion.div 
           variants={staggerContainer}
@@ -38,10 +45,10 @@ const SocialProof = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-bold text-white mb-6">
             Histórias que nos fazem sorrir
           </motion.h2>
-          <motion.p variants={fadeInUp} className="text-teal-100 max-w-2xl mx-auto text-lg">
+          <motion.p variants={fadeInUp} className="text-teal-50 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
             A satisfação dos nossos pacientes é o nosso maior cartão de visitas.
           </motion.p>
         </motion.div>
@@ -57,27 +64,54 @@ const SocialProof = () => {
             <motion.div 
               key={idx} 
               variants={fadeInUp}
-              className="bg-teal-800/40 backdrop-blur-md border border-teal-600/30 p-8 rounded-[2rem] relative"
+              className="bg-gradient-to-br from-white to-slate-50 p-8 rounded-[2rem] shadow-2xl relative group hover:-translate-y-2 transition-transform duration-300"
             >
-              <Quote className="absolute top-8 right-8 text-teal-500/20 w-12 h-12 rotate-180" />
+              <Quote className="absolute top-8 right-8 text-teal-100 w-12 h-12 rotate-180 group-hover:text-teal-200 transition-colors" />
               
               <div className="flex items-center gap-4 mb-6">
-                <img 
-                  src={item.image} 
-                  alt={item.name} 
-                  className="w-14 h-14 rounded-full border-2 border-teal-400 object-cover"
-                />
+                <div className="relative">
+                  <img 
+                    src={item.image} 
+                    alt={item.name} 
+                    className="w-14 h-14 rounded-full border-2 border-white shadow-md object-cover"
+                  />
+                  <div className="absolute -bottom-1 -right-1 bg-white rounded-full p-0.5 shadow-sm">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" className="w-4 h-4" />
+                  </div>
+                </div>
                 <div>
-                  <h4 className="text-white font-bold text-lg">{item.name}</h4>
-                  <p className="text-teal-200 text-sm">{item.role}</p>
+                  <h4 className="text-slate-900 font-bold text-lg leading-tight">{item.name}</h4>
+                  <div className="flex gap-0.5 mt-1">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                        <Star key={star} className="w-3.5 h-3.5 text-yellow-400 fill-current" />
+                    ))}
+                  </div>
                 </div>
               </div>
               
-              <p className="text-teal-50 leading-relaxed italic relative z-10">
+              <p className="text-slate-600 leading-relaxed relative z-10 text-[0.95rem]">
                 "{item.content}"
               </p>
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* Avaliação movida para baixo */}
+        <motion.div 
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }} 
+          className="flex justify-center items-center mt-12 pt-8"
+        >
+            <div className="flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-teal-400/30">
+                <div className="flex gap-1">
+                {[1, 2, 3, 4, 5].map((star) => (
+                    <Star key={star} className="w-5 h-5 text-yellow-400 fill-current" />
+                ))}
+                </div>
+                <span className="text-white font-medium text-lg ml-2">4.8 de 5.0 no Google</span>
+            </div>
         </motion.div>
       </div>
     </section>

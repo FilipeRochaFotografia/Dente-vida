@@ -1,62 +1,90 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Smile, Zap, Heart, Sparkles, Shield, Users } from 'lucide-react';
-import Card from '../components/ui/Card';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Sparkles, ShieldCheck, Smile, Activity, Layers, Scissors, Anchor, Disc, Plus, ChevronDown } from 'lucide-react';
 import { staggerContainer, fadeInUp } from '../utils/animations';
 
-const services = [
+const treatments = [
   {
-    icon: <Sparkles className="w-8 h-8" />,
-    title: "Estética Dental",
-    description: "Lentes de contato, facetas e clareamento para um sorriso radiante e harmonioso."
+    id: 1,
+    icon: <Disc className="w-6 h-6" />,
+    title: "IMPLANTODONTIA",
+    description: "Reabilitação segura com implantes de titânio para substituir raízes perdidas e devolver sua função mastigatória."
   },
   {
-    icon: <Shield className="w-8 h-8" />,
-    title: "Implantes",
-    description: "Reabilitação completa com materiais de titânio de última geração e cirurgia guiada."
+    id: 2,
+    icon: <Plus className="w-6 h-6" />,
+    title: "PRÓTESE",
+    description: "Restauração de dentes destruídos ou reposição de dentes perdidos, visando conforto e naturalidade."
   },
   {
-    icon: <Smile className="w-8 h-8" />,
-    title: "Ortodontia",
-    description: "Alinhadores invisíveis e aparelhos modernos para corrigir seu sorriso com discrição."
+    id: 3,
+    icon: <ShieldCheck className="w-6 h-6" />,
+    title: "PREVENÇÃO",
+    description: "Protocolos de limpeza profunda e check-ups regulares para manter a saúde bucal sempre em dia."
   },
   {
-    icon: <Heart className="w-8 h-8" />,
-    title: "Prevenção",
-    description: "Check-ups regulares e limpeza profunda para manter sua saúde bucal em dia."
+    id: 4,
+    icon: <Sparkles className="w-6 h-6" />,
+    title: "ESTÉTICA DENTAL",
+    description: "Lentes de contato, facetas e clareamento para transformar seu sorriso de forma harmoniosa."
   },
   {
-    icon: <Users className="w-8 h-8" />,
-    title: "Odontopediatria",
-    description: "Cuidado especializado e lúdico para garantir o sorriso saudável dos pequenos."
+    id: 5,
+    icon: <Activity className="w-6 h-6" />,
+    title: "ENDODONTIA",
+    description: "Tratamento de canal com tecnologia rotatória avançada para curar lesões e salvar o dente."
   },
   {
-    icon: <Zap className="w-8 h-8" />,
-    title: "Urgências",
-    description: "Atendimento prioritário para dor de dente e acidentes quando você mais precisa."
+    id: 6,
+    icon: <Layers className="w-6 h-6" />,
+    title: "PERIODONTIA",
+    description: "Cuidados especializados para a saúde da gengiva e dos tecidos de sustentação dos dentes."
+  },
+  {
+    id: 7,
+    icon: <Smile className="w-6 h-6" />,
+    title: "ODONTOPEDIATRIA",
+    description: "Atendimento lúdico e especializado para acompanhar a saúde bucal das crianças desde cedo."
+  },
+  {
+    id: 8,
+    icon: <Scissors className="w-6 h-6" />,
+    title: "CIRURGIA ORAL MENOR",
+    description: "Extração de sisos e pequenos procedimentos cirúrgicos realizados com segurança e conforto."
   }
 ];
 
 const Features = () => {
+  const [activeId, setActiveId] = useState<number | null>(null);
+
   return (
-    <section className="py-24 bg-slate-50 relative overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section id="treatments" className="py-24 bg-slate-50 relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-10">
+        <img 
+          src="https://i.ibb.co/tPFjZRDD/equip3.png" 
+          alt="Dental Equipment Background" 
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
         
         <motion.div 
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center max-w-3xl mx-auto mb-20"
+          className="text-center max-w-3xl mx-auto mb-16"
         >
           <motion.span variants={fadeInUp} className="text-teal-600 font-semibold uppercase tracking-wider text-sm">
-            Nossos Tratamentos
+            Especialidades
           </motion.span>
-          <motion.h2 variants={fadeInUp} className="text-4xl font-bold text-slate-900 mt-3 mb-6">
-            Tecnologia e carinho em <br className="hidden md:block"/> cada detalhe do seu tratamento.
+          <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-bold text-slate-900 mt-3 mb-6">
+            Tratamentos Completos
           </motion.h2>
           <motion.p variants={fadeInUp} className="text-slate-600 text-lg">
-            Oferecemos uma gama completa de serviços odontológicos, desde a prevenção básica até reabilitações complexas, sempre com foco no seu conforto.
+            Clique nos cartões abaixo para saber mais sobre nossos procedimentos.
           </motion.p>
         </motion.div>
 
@@ -64,17 +92,62 @@ const Features = () => {
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          viewport={{ once: true, margin: "-50px" }}
+          layout
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 justify-items-center items-start"
         >
-          {services.map((service, index) => (
-            <Card key={index}>
-              <div className="w-14 h-14 rounded-2xl bg-teal-50 flex items-center justify-center text-teal-600 mb-6 group-hover:scale-110 transition-transform duration-300">
-                {service.icon}
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h3>
-              <p className="text-slate-600 leading-relaxed">{service.description}</p>
-            </Card>
+          {treatments.map((item) => (
+            <motion.div
+              layout
+              variants={fadeInUp}
+              key={item.id}
+              onClick={() => setActiveId(activeId === item.id ? null : item.id)}
+              className={`
+                relative overflow-hidden rounded-2xl cursor-pointer transition-colors duration-300 border w-full max-w-xs
+                ${activeId === item.id 
+                  ? 'bg-teal-600 border-teal-600 shadow-xl shadow-teal-900/20' 
+                  : 'bg-white border-teal-100 hover:border-teal-300 hover:shadow-lg hover:shadow-teal-100/50'
+                }
+              `}
+            >
+              <motion.div layout="position" className="px-5 py-8">
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className={`
+                      p-2.5 rounded-lg transition-colors duration-300
+                      ${activeId === item.id ? 'bg-white/20 text-white' : 'bg-teal-50 text-teal-600'}
+                    `}>
+                      {item.icon}
+                    </div>
+                    <h3 className={`font-bold text-sm tracking-wide uppercase ${activeId === item.id ? 'text-white' : 'text-slate-800'}`}>
+                      {item.title}
+                    </h3>
+                  </div>
+                  
+                  <motion.div
+                    animate={{ rotate: activeId === item.id ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ChevronDown className={`w-5 h-5 ${activeId === item.id ? 'text-teal-200' : 'text-teal-300'}`} />
+                  </motion.div>
+                </div>
+
+                <AnimatePresence>
+                  {activeId === item.id && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                      animate={{ opacity: 1, height: 'auto', marginTop: 16 }}
+                      exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                      <p className="text-teal-50 text-sm leading-relaxed border-t border-teal-500/50 pt-4">
+                        {item.description}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            </motion.div>
           ))}
         </motion.div>
 
